@@ -10,39 +10,67 @@
 //określonych powyżej zakresach, a w przypadku błędu pytać prosić
 //użytkownika ponownie o podanie danych.
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Exercise3 {
     public static void main(String[] args) {
         System.out.println("Kalkulator ratalny");
 
-        Scanner input = new Scanner(System.in);
+        double price = inputDouble("Podaj kwotę: ");
+        int rate = Utils.inputIntStatic("Podaj liczbę rat: ");
 
-        System.out.print("Podaj kwotę: ");
-        double price = input.nextDouble();
+        printSeparator();
 
-        System.out.print("Podaj liczbę rat: ");
-        int rate = input.nextInt();
-
-        input.close();
-
-        double mulitiplier;
-
-        if (rate >= 6 && rate <= 12) {
-            mulitiplier = 0.025;
-        } else if (rate > 12 && rate <= 24) {
-            mulitiplier = 0.05;
+        if (isParameterInvalid(price, rate)) {
+            showError();
         } else {
-            mulitiplier = 0.1;
+            calculateAndShowResult(price, rate);
         }
+    }
 
-        double interest = price * mulitiplier;
+    private static boolean isParameterInvalid(double price, int rate) {
+        return price < 100 || price > 10_000 || rate < 6 || rate > 48;
+    }
+
+    private static void calculateAndShowResult(double price, int rate) {
+        double interest = price * getMultiplier(rate);
         double total = price + interest;
         double rateValue = total / rate;
 
-        System.out.println("-----------------------");
         System.out.println("Odsetki: " + interest + "zł");
         System.out.println("Łączny koszt: " + total + "zł");
         System.out.println("Wysokość raty: " + rateValue + "zł");
+    }
+
+    private static double getMultiplier(int rate) {
+        if (rate <= 12) {
+            return 0.025;
+        } else if (rate <= 24) {
+            return 0.05;
+        } else {
+            return 0.1;
+        }
+    }
+
+    private static void printSeparator() {
+        System.out.println("-----------------------");
+    }
+
+    private static void showError() {
+        System.out.println("Podano błędną wartość !!!");
+        System.out.println("Kwota powinna znajdować się w przedziale od 100zł do 10 000zł");
+        System.out.println("Rata powinna znajdować się w przedziale od 6 do 48");
+    }
+
+    static double inputDouble(String message) {
+        try {
+            System.out.print(message);
+            Scanner scanner = new Scanner(System.in);
+            return scanner.nextDouble();
+        } catch (InputMismatchException e) {
+            System.out.println("Podano błędną wartość");
+            return inputDouble(message);
+        }
     }
 }
