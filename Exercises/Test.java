@@ -1,14 +1,16 @@
+package Exercises;
+
 public class Test {
     public static void main(String[] args) {
-//        int firstNumber = Utils.inputIntStatic("Podaj liczbę: ");
+//        int firstNumber = Exercises.Utils.inputIntStatic("Podaj liczbę: ");
 //
-//        Utils utilsObj = new Utils();
+//        Exercises.Utils utilsObj = new Exercises.Utils();
 //        int secondNumber = utilsObj.inputIntObject("Podaj liczbę: ");
 //
 //        System.out.println(firstNumber);
 //        System.out.println(secondNumber);
 
-//        Student firstStudent = new Student("Jan", "Testowy");
+//        Exercises.App.Student firstStudent = new Exercises.App.Student("Jan", "Testowy");
 //        System.out.println(firstStudent.getName());
 //        System.out.println(firstStudent.getSurname());
 //        System.out.println(firstStudent.getFullName());

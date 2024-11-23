@@ -1,4 +1,4 @@
-//Zadanie 4. Napisać program obliczający należny podatek
+package Exercises;//Zadanie 4. Napisać program obliczający należny podatek
 //dochodowy od osób fizycznych. Program ma pobierać od
 //użytkownika dochód i po obliczeniu wypisywać na ekranie należny
 //podatek. Podatek obliczany jest wg. następujących reguł:

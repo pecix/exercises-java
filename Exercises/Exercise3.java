@@ -1,4 +1,4 @@
-//Zadanie 5. W sklepie ze sprzętem AGD oferowana jest sprzedaż
+package Exercises;//Zadanie 5. W sklepie ze sprzętem AGD oferowana jest sprzedaż
 //ratalna. Napisz program umożliwiający wyliczenie wysokości
 //miesięcznej raty za zakupiony sprzęt. Danymi wejściowymi dla
 //programu są:

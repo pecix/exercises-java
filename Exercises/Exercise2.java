@@ -1,8 +1,5 @@
-//Zadanie 2. Wczytać od użytkownika 3 liczby całkowite i wypisać na
+package Exercises;//Zadanie 2. Wczytać od użytkownika 3 liczby całkowite i wypisać na
 //ekran największą oraz najmniejszą z nich.
-
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class Exercise2 {
     public static void main(String[] args) {

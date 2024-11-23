@@ -1,4 +1,4 @@
-//Zadanie 6. Napisać program realizujący funkcje prostego kalkulatora,
+package Exercises;//Zadanie 6. Napisać program realizujący funkcje prostego kalkulatora,
 //pozwalającego na wykonywanie operacji dodawania, odejmowania,
 //mnożenia i dzielenia na dwóch liczbach rzeczywistych. Program ma
 //identyfikować sytuację wprowadzenia błędnego symbolu działania
@@ -10,7 +10,6 @@
 //c) Wczytuje symbol operacji arytmetycznej: +, -, *, /.
 //d) Wczytuje drugą liczbę.
 
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Exercise4 {
