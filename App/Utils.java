@@ -1,10 +1,41 @@
 package App;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 public class Utils {
+    static Company initData() {
+        Person firstPerson = new Person("Jan", "Pierwszy");
+        Person secondPerson = new Person("Kazimierz", "Drugi");
+        Person thirdPerson = new Person("Imię", "Trzeci");
+        Person fourthPerson = new Person("Imię", "Czwarty");
+        Person fifthPerson = new Person("Imię", "Piąty");
+        Person sixthPerson = new Person("Imię", "Szósty");
+
+        Employee firstEmployee = new Employee(firstPerson, Departament.SALES);
+        Employee secondEmployee = new Employee(secondPerson, Departament.FINANCE);
+        Employee thirdEmployee = new Employee(thirdPerson, Departament.ADMINISTRATION);
+        Employee fourthEmployee = new Employee(fourthPerson, Departament.FINANCE);
+        Employee fifthEmployee = new Employee(fifthPerson, Departament.FINANCE);
+        Employee sixthEmployee = new Employee(sixthPerson, Departament.SALES);
+
+        List<Employee> employees = new ArrayList<>();
+
+        employees.add(firstEmployee);
+        employees.add(secondEmployee);
+        employees.add(thirdEmployee);
+        employees.add(fourthEmployee);
+        employees.add(fifthEmployee);
+        employees.add(sixthEmployee);
+
+        Company company = new Company("Moja firma");
+        company.setEmployees(employees);
+
+        return company;
+    }
+
     static int inputInt(String message) {
         try {
             System.out.print(message);
@@ -30,25 +61,20 @@ public class Utils {
         System.out.println(border + "\n");
     }
 
-    static void printTable(List<String> collection, String title) {
-        int titleLength = title.length();
-        int longestItemLength = collection.stream().mapToInt(String::length).max().orElse(0);
-        int columnLength = Math.max(titleLength, longestItemLength);
-        String titlePlaceholder = "| Id | %-" + columnLength + "s |%n";
-        String itemPlaceholder = "| %-2d | %-" + columnLength + "s |%n";
-        String horizontalBorder = "+----+" + "-".repeat(columnLength + 2) + "+";
-
-        System.out.println(horizontalBorder);
-        System.out.printf(titlePlaceholder, title);
-        System.out.println(horizontalBorder);
-        for (int i = 0; i < collection.size(); i++) {
-            System.out.printf(itemPlaceholder, i + 1, collection.get(i));
-            //            System.out.println(horizontalBorder);
-        }
-        System.out.println(horizontalBorder);
+    static void printAnswer(String message) {
+        System.out.println();
+        System.out.println(message);
+        System.out.println();
     }
 
-    static void printSeparator() {
-        System.out.println("--------------------------------");
+    static void printOptions() {
+        System.out.println("Dostępne operacje:");
+        System.out.println("1. Wyświetl pracowników");
+        System.out.println("2. Dodaj pracownika");
+        System.out.println("3. Zwolnij pracownika");
+        System.out.println("4. Edytuj dane pracownika");
+        System.out.println("5. Wyświetl pracowników wg działu");
+        System.out.println("0. Zakończ program");
+        System.out.println();
     }
 }
